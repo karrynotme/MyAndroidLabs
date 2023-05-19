@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Hello There"
         android:id="@+id/theEditText"
+
         />
 
 </LinearLayout>
