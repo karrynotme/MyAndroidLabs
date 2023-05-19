@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
                          String words = theEdit.getText().toString();//return what's in the EditText
                          //change what is in the textView
                          theText.setText(words);
-
                      }
              });
     }
