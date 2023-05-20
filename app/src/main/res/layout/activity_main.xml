@@ -4,31 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     android:orientation="vertical"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello world"
-        android:id="@+id/theText"
+        android:text="@string/textView"
+        android:id="@+id/myText"
         android:textSize="30dp"
         tools:ignore="ExtraText" />
     <Button
         android:textSize="30dp"
-        android:id="@+id/theButton"
+        android:id="@+id/myButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="click me"/>
+        android:text="@string/click"/>
 
     <EditText
         android:textSize="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello There"
-        android:id="@+id/theEditText"
-
+        android:text="@string/edit"
+        android:id="@+id/editString"
         />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check this out"
+        android:id="@+id/myCheckbox"/>
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mySwitch"
+        android:text="I'm a switch" />
 
 </LinearLayout>
