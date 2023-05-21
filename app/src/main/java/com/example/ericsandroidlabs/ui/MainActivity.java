@@ -1,70 +1,66 @@
-
 package com.example.ericsandroidlabs.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.ericsandroidlabs.R;
-import com.example.ericsandroidlabs.data.MainActivityViewModel;
+import com.example.ericsandroidlabs.data.MainViewModel;
 import com.example.ericsandroidlabs.databinding.ActivityMainBinding;
-
-import java.text.CollationElementIterator;
 
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding variableBinding;
-    private MainActivityViewModel model;
+    private MainViewModel model;
+
     //equivalent to        static void main(String args[])
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); //calling onCreate from parent class
-        model = new ViewModelProvider(this).get(MainActivityViewModel.class);
-        variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        super.onCreate(savedInstanceState); //calling onCreate from parent class,do what the parent does
+        model = new ViewModelProvider(this).get(MainViewModel.class);//initialize
+
+        //this has all the ids predefined
+        com.example.ericsandroidlabs.databinding.ActivityMainBinding variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        //loads the screen
         setContentView(variableBinding.getRoot());
-
-        variableBinding.myText.setText(model.editString);
-        variableBinding.myButton.setOnClickListener( click  ->{
-            variableBinding.myText.setText("Your Edit Text has" + model.editString);
-
+        //old way of getting widgets
+        TextView theText = variableBinding.theText;
+        Button myButton = variableBinding.theButton;
+        EditText myEdit = variableBinding.theEdit;
+        CheckBox myCheckbox = variableBinding.myCheckbox;
+        Switch mySwitch = variableBinding.mySwitch;
+        //TextView theText = findViewById(R.id.theText );
+        //Button myButton = findViewById( R.id.theButton );
+        //EditText myEdit = findViewById( R.id.theEdit );
+        //CheckBox myCheckbox = findViewById( R.id.myCheckbox );
+        
+        //anCheckedChanged()
+        myCheckbox.setOnCheckedChangeListener( (a,b) ->{
+            theText.setText("The checkbox is on?" +b);
+        });
+        //when only 1 line of code between{}
+        mySwitch.setOnCheckedChangeListener( (a, b) ->{
+            theText.setText("The switch is on?" +b);
         });
 
 
-        //loads an XML file on the page
-        //setContentView(  R.layout.activity_main   );
-
-        //look for something that id as "theText", return that object
-        //TextView theText = findViewById( R.id.theText );
-        //will search XML for something with id as theButton
-        //Button myButton = findViewById( R.id.theButton ); //same as getElementId in javascript
-        //EditText theEdit = findViewById(R.id.theEditText);
-        CheckBox myCheckbox = variableBinding.myCheckbox;
-        Switch mySwitch = variableBinding.mySwitch;
-        //onCheckedChanged
-        myCheckbox.setOnClickedChangedListener( (a,b) -> myText.setText("The CheckBox is ON?" +b));
-
-        //when only 1 line of code between {}
-        mySwitch.setOnClickedChangeListener((a,b) -> myText.setText("The Switch is ON?"+ b));
-
-        myText.setText( model.theText );//save it offscreen
+        theText.setText( model.theText );
         myButton.setText( model.buttonText );
-        //myButton.setOnClickListener(new View.OnClickListener() {
-            // provide the missing function:
-           // @Override
-           // public void onClick(View v) {
-              //  String words = theEdit.getText().toString();//return what's in the EditText
-                //change what is in the textView
-                //theText.setText(words);
+        myEdit.setText( model.editText );
 
-            }
-       // });
-    //}
-}
+        myButton.setOnClickListener((v) -> {
+                    model.theText = "You clicked the button";
+                    model.buttonText = "Something new here";
+                    model.editText = "My edit text";
+                    //this gets run when you click the button
+                    theText.setText(model.theText);
+                    myButton.setText(model.buttonText);
+                    myEdit.setText(model.editText);
 
+                });
+        }
+    }

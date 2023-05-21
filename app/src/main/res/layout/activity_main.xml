@@ -12,12 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textView"
-        android:id="@+id/myText"
+        android:id="@+id/theText"
         android:textSize="30dp"
         tools:ignore="ExtraText" />
     <Button
         android:textSize="30dp"
-        android:id="@+id/myButton"
+        android:id="@+id/theButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/click"/>
@@ -27,13 +27,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edit"
-        android:id="@+id/editString"
+        android:id="@+id/theEdit"
         />
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Check this out"
         android:id="@+id/myCheckbox"/>
+
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
