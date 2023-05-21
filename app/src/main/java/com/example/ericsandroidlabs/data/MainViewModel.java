@@ -4,6 +4,7 @@ public class MainViewModel extends ViewModel{
     public String theText = "Hello World";
     public String buttonText= "Click Me";
     public String editText = "Edit text";
+    public String imageText = "Imageview text";
     //public String edtString;
     }
 
