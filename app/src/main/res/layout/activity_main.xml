@@ -25,20 +25,26 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check this out"
+        android:text="Do you drink coffee?"
         android:id="@+id/myCheckbox"/>
 
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/mySwitch"
-        android:text="I'm a switch" />
+        android:text="Do you drink coffee?" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/myRadioButton"
-        android:text="My Radio Button" />
+        android:text="Do you drink coffee?" />
+
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logo_alqonguin"/>
 
     <ImageButton
         android:id="@+id/myImageButton"
@@ -51,6 +57,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edit"
-        android:id="@+id/theEdit" />
+        android:id="@+id/myeditText" />
 
 </LinearLayout>
