@@ -29,15 +29,15 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="32dp"
+        android:nextFocusLeft="@id/button1"
+        android:nextFocusRight="@id/button4"
+        android:nextFocusDown="@id/switch1"
         android:text="Button"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="@+id/button1"
-        android:nextFocusDown="@id/switch1"
-        android:nextFocusRight="@id/button4"
-        android:nextFocusLeft="@id/button1"/>
+        app:layout_constraintTop_toTopOf="@+id/button1" />
 
     <Button
         android:id="@+id/button4"
@@ -70,11 +70,11 @@
         android:id="@+id/spin_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3200dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/spin_message"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
