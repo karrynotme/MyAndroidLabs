@@ -15,7 +15,9 @@
         android:theme="@style/Theme.ZhousAndroidLabs"
         tools:ignore="ExtraText" >
 
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            tools:ignore="MissingClass">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
