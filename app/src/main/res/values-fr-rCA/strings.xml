@@ -3,4 +3,5 @@
     <string name="app_name">Zhou\'s Android Labs</string>
     <string name="hello_message">Bounjour tout le monde!</string>
     <string name="button_message">Je suis un bunton</string>
+    <string name="spin_message" />
 </resources>
