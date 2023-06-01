@@ -1,6 +1,7 @@
-package algonquin.cst2335.zhou0223.ui;
+package algonquin.cst2335.zhou0223;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -8,18 +9,17 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.Switch;
 
-import algonquin.cst2335.zhou0223.R;
-
 public class MainActivity extends AppCompatActivity {
     ImageView imgView;
     Switch sw;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // 通过findViewById方法获取布局中的视图
         imgView = findViewById(R.id.imageView);
-        sw = findViewById(R.id.spin_switch);
+        sw = findViewById(R.id.switch1);
         sw.setOnCheckedChangeListener( (btn, isChecked) -> { {
             // 设置开关的状态变化监听器
             if (isChecked) {
