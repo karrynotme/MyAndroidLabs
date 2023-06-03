@@ -7,7 +7,7 @@ android {
     compileSdk 33
 
     buildFeatures{
-        vieBinding true
+        viewBinding true
     }
 
     defaultConfig {

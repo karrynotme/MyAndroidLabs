@@ -1,9 +1,11 @@
 package algonquin.cst2335.zhou0223;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
+
+import java.text.BreakIterator;
 
 import algonquin.cst2335.zhou0223.databinding.ActivityMainBinding;
 
@@ -16,22 +18,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //calling onCreate from parent class
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-
-        Log.e(TAG, "In OnCreate()");
-
-
+        setContentView(R.layout.activity_main);
+        //binding = ActivityMainBinding.inflate(getLayoutInflater());
+        Log.w("MainActivity", "In OnCreate() -Loading Widgets" );
         //loads an XML file on the page
         setContentView(  binding.getRoot()   );
+        EditText et = findViewById(R.id.emailText);
 
         binding.loginButton.setOnClickListener( (v) -> {
-            Log.e(TAG, "You clicked the button");
-
-
-            //where to go:             leaving here          going to SecondActivity
-            Intent nextPage = new Intent( this, SecondActivity.class);
-
+            Log.w(TAG, "You clicked the button");
+            //where to go:
+            //leaving here
+            //going to SecondActivity
+            Intent nextPage = new Intent(MainActivity.this, SecondActivity.class);
+            // 将电子邮件地址作为额外的数据添加到Intent中
+            nextPage.putExtra("EmailAddress", et.getText().toString());
             //go to another page
             startActivity(nextPage);
         } );
