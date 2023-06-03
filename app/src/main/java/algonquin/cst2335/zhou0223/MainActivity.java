@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         } );
 
     }
-
     @Override //garbage collected, app is gone
     protected void onDestroy() {
         super.onDestroy();
