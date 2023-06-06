@@ -1,43 +1,46 @@
 package algonquin.cst2335.zhou0223;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
-
-import java.text.BreakIterator;
-
+import android.widget.TextView;
 import algonquin.cst2335.zhou0223.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
     protected ActivityMainBinding binding;
+    private SharedPreferences prefs;
 
     //equivalent to        static void main(String args[])
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //calling onCreate from parent class
         setContentView(R.layout.activity_main);
-        //binding = ActivityMainBinding.inflate(getLayoutInflater());
-        Log.w("MainActivity", "In OnCreate() -Loading Widgets" );
-        //loads an XML file on the page
-        setContentView(  binding.getRoot()   );
+        Log.w("MainActivity", "In OnCreate() -Loading Widgets");
+
         EditText et = findViewById(R.id.emailText);
-
-        binding.loginButton.setOnClickListener( (v) -> {
-            Log.w(TAG, "You clicked the button");
-            //where to go:
-            //leaving here
-            //going to SecondActivity
-            Intent nextPage = new Intent(MainActivity.this, SecondActivity.class);
-            // 将电子邮件地址作为额外的数据添加到Intent中
-            nextPage.putExtra("EmailAddress", et.getText().toString());
-            //go to another page
-            startActivity(nextPage);
-        } );
-
+        prefs = getSharedPreferences("Mydata", Context.MODE_PRIVATE);
+        String emailAddress = prefs.getString("LoginName", "");
+        et.setText(emailAddress);
     }
+        public void sendMessage(View view) {
+            TextView editText = findViewById(R.id.emailText);
+            String newEmailAddress = editText.getText().toString();
+
+            SharedPreferences prefs = getSharedPreferences("Mydata", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("LoginName", newEmailAddress);
+            editor.apply();
+            Intent nextPage = new Intent(MainActivity.this, SecondActivity.class);
+            nextPage.putExtra("EmailAddress", editText.getText().toString());
+            startActivity(nextPage);
+        }
     @Override //garbage collected, app is gone
     protected void onDestroy() {
         super.onDestroy();
