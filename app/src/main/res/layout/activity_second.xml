@@ -22,22 +22,21 @@
         android:id="@+id/editTextPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="87dp"
         android:ems="10"
         android:inputType="phone"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:src="@android:drawable/ic_menu_camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="79dp"
         android:layout_marginTop="43dp"
         android:src="@android:drawable/ic_menu_camera"
-        app:layout_constraintStart_toStartOf="@+id/editTextPhone"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
         tools:ignore="MissingConstraints" />
 
@@ -45,23 +44,23 @@
         android:id="@+id/changePictureButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="40dp"
         android:backgroundTint="@color/blue"
         android:text="CALL NUMBER"
-        app:layout_constraintBottom_toTopOf="@+id/changePictureButton2"
-        app:layout_constraintStart_toStartOf="@+id/changePictureButton2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextPhone"
+        app:layout_constraintStart_toEndOf="@+id/editTextPhone"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/changePictureButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="198dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="4dp"
         android:backgroundTint="@color/blue"
         android:text="CHANGE PICTURE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePictureButton"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
