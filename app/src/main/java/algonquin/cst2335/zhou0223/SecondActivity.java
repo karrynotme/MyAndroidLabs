@@ -20,9 +20,9 @@ import java.io.FileOutputStream;
 import algonquin.cst2335.zhou0223.databinding.ActivitySecondBinding;
 
 public class SecondActivity extends AppCompatActivity {
-    private ActivitySecondBinding binding;
+    //private ActivitySecondBinding binding;
     private ActivityResultLauncher<Intent> cameraLauncher;
-    private SharedPreferences prefs;
+    //private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,6 @@ public class SecondActivity extends AppCompatActivity {
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
-
-                    }
-
-                    public void onActivityResuilt(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Intent data = result.getData();
                             if (data != null && data.hasExtra("data")) {
