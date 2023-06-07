@@ -96,4 +96,11 @@ public class SecondActivity extends AppCompatActivity {
                 cameraResult.launch(cameraIntent);
             });
         }
+    protected void onPause(){
+        super.onPause();
+        SharedPreferences prefs = getSharedPreferences("Mydata",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("PhoneNumber",variableBinding.editTextPhone.getText().toString());
+        editor.apply();
+    }
     }
