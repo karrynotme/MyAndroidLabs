@@ -16,6 +16,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.TextView;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,6 +35,12 @@ public class SecondActivity extends AppCompatActivity {
             setContentView(variableBinding.getRoot());
             SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
 
+            Intent fromPrevious = getIntent();
+            String emailAddress = fromPrevious.getStringExtra("EmailAddress");
+            variableBinding.textView3.setText("Welcome back"+emailAddress);
+            //TextView welcomeTextView = findViewById(R.id.textView3);
+            //welcomeTextView.setText("Welcome Back " + emailAddress);
+
             //set initial phone number
             variableBinding.editTextPhone.setText(prefs.getString("PhoneNumber", ""));
             // get picture if exist
@@ -42,16 +50,6 @@ public class SecondActivity extends AppCompatActivity {
                 Bitmap theImage = BitmapFactory.decodeFile(file.getAbsolutePath());
                 variableBinding.imageView.setImageBitmap(theImage);
             }
-
-
-
-            //set welcome sign
-            Intent fromPrevious = getIntent();
-//        String emailAddress = fromPrevious.getStringExtra("Email");
-
-            String emailAddress = prefs.getString("Email", "");
-//        String pw = fromPrevious.getStringExtra("Password");
-            variableBinding.textView3.setText("Welcome Back " + emailAddress);
 
             //set phone call
             variableBinding.changeNumber.setOnClickListener((v)-> {
