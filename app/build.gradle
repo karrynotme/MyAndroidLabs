@@ -6,6 +6,10 @@ android {
     namespace 'algonquin.cst2335.zhou0223'
     compileSdk 33
 
+    buildFeatures{
+        viewBinding true
+    }
+
     packagingOptions {
         // Exclude file to avoid
         // Error: Duplicate files during packaging of APK

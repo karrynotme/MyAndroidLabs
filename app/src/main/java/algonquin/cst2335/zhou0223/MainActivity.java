@@ -14,7 +14,6 @@ import algonquin.cst2335.zhou0223.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
-    protected ActivityMainBinding binding;
     private SharedPreferences prefs;
 
     //equivalent to        static void main(String args[])
