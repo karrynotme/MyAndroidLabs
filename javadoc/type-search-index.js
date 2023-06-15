@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"algonquin.cst2335.zhou0223.databinding","l":"ActivityMainBinding"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"algonquin.cst2335.zhou0223","l":"MainActivity"}];updateSearchResults();

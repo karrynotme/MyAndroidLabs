@@ -43,7 +43,7 @@ android.applicationVariants.all { variant ->
         doFirst {
             ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
             classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
-            options.addStringOption "-show-members", "package"
+            options.addStringOption "-show-members", "private"
         }
     }}
 
