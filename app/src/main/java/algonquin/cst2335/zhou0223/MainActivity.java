@@ -4,88 +4,74 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-import algonquin.cst2335.zhou0223.databinding.ActivityMainBinding;
 
 
-/**
- * The main activity java class of the activity_main.xml
- * @author Xuemin
+/**This page represents the first page loaded
+ * @author Min
  * @version 1.0
  */
+
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding variableBinding;
-//    private MainViewModel model;
 
-    /**
-     * A function to check the password contains at least an uppercase, a lowercase,
-     * a number and a special character.
-     * @param pw The String object that we are checking
-     * @return  Return true if the password is complex enough
-     */
-    private boolean checkPasswordComplexity(String pw){
-        if(!pw.matches(".*[A-Z].*")){
-            Toast.makeText(this, "Missing an UpperCase letter", Toast.LENGTH_SHORT);
-            return false;
-        }
-        else if(!pw.matches(".*[a-z].*")){
-            Toast.makeText(this, "Missing a LowerCase letter", Toast.LENGTH_SHORT);
-            return false;
-        }
-        else if(!pw.matches(".*\\d.*")){
-            Toast.makeText(this, "Missing a Number", Toast.LENGTH_SHORT);
-            return false;
-        }
-        else if(!pw.matches(".*[#$%^&*!@?].*")){
-            Toast.makeText(this, "Missing a Special Character (#$%^&*!@?)", Toast.LENGTH_SHORT);
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
+    /** This is a javadoc comment */
 
-    //boolean isSpecialCharacter(char c){
-       // switch (c)
-        //{
-           // case '#':
-           // case'?':
-           // case'*':
-              //  return true;
-          //  default:
-               // return false;
-      //  }
-   // }
+    /*   This is a normal comment */
 
+    /** This holds the "Hello world" text view */
+    protected TextView theText;
+
+
+    /** This holds the "Click me" button */
+    protected Button myButton;
+
+
+    /** This holds the edit text for typing into */
+    protected EditText theEditText;
+
+    //equivalent to        static void main(String args[])
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState); //calling onCreate from parent class
 
-        //view binding
-        variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(variableBinding.getRoot());
 
-        /** This holds the text at the centre of the screen*/
-        TextView tv = variableBinding.textView;
-        /** This hold the input of the password from the user */
-        EditText et = variableBinding.theEditText;
-        /** This holds the login in button*/
-        Button btn = variableBinding.button;
+        //loads an XML file on the page
+        setContentView(  R.layout.activity_main   );
 
-        //click button to show text from edittext to text view
-        btn.setOnClickListener(click -> {
-            String password = et.getText().toString();
-            if(checkPasswordComplexity(password)){
-                tv.setText("Your password is complex enough");
+        theText = findViewById(R.id.textView);
+        myButton = findViewById(R.id.button);
+        theEditText = findViewById(R.id.theEditText);
+
+        myButton.setOnClickListener( click -> {
+            String input = theEditText.getText().toString();
+
+            if(checkInput(input, '='))
+            {
+                theText.setText("We found =");
             }
-            else{
-                tv.setText("You shall not pass!");
-            }
+            else theText.setText("NO = found in the text");
+
         });
     }
-}
 
+    /** This function checks the input string
+     *
+     * @param input  The string to search
+     * @param toLookFOr  The character to compare
+     * @return true if toLookFor is part of the input string, false otherwise
+     */
+
+    boolean checkInput(String input, char toLookFOr  ){
+        boolean found = false;
+
+        for(int i = 0; i < input.length(); i++ ){
+            char c = input.charAt(i);
+            if(c == toLookFOr)
+                found = true;
+        }
+        return found;
+    }
+
+
+}
