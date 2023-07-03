@@ -1,10 +1,18 @@
 package algonquin.cst2335.zhou0223;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import algonquin.cst2335.zhou0223.databinding.ActivityMainBinding;
+import algonquin.cst2335.zhou0223.databinding.SentRowLayoutBinding;
 
 
 /**This page represents the first page loaded
@@ -13,65 +21,79 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 
 public class MainActivity extends AppCompatActivity {
-
-
     /** This is a javadoc comment */
-
     /*   This is a normal comment */
-
-    /** This holds the "Hello world" text view */
+    /**
+     * This holds the "Hello world" text view
+     */
+    protected ArrayList<String> theWords;
+    protected RecyclerView recyclerView;
     protected TextView theText;
-
-
-    /** This holds the "Click me" button */
+    /**
+     * This holds the "Click me" button
+     */
     protected Button myButton;
-
-
-    /** This holds the edit text for typing into */
+    /**
+     * This holds the edit text for typing into
+     */
     protected EditText theEditText;
+    RecyclerView.Adapter myAdapter;
 
     //equivalent to        static void main(String args[])
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //calling onCreate from parent class
-
-
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         //loads an XML file on the page
-        setContentView(  R.layout.activity_main   );
+        setContentView(binding.getRoot());
+        theWords = new ArrayList<>();
+        //theText = findViewById(R.id.textView);
+        recyclerView = binding.theRecycleView;
+        myButton = binding.button;
+        theEditText = binding.theEditText;
 
-        theText = findViewById(R.id.textView);
-        myButton = findViewById(R.id.button);
-        theEditText = findViewById(R.id.theEditText);
-
-        myButton.setOnClickListener( click -> {
+        myButton.setOnClickListener(click -> {
             String input = theEditText.getText().toString();
+            theWords.add(input);
+            myAdapter.notifyDataSetChanged();//update the rows
+            theEditText.setText("");
+        });
 
-            if(checkInput(input, '='))
-            {
-                theText.setText("We found =");
+        //for  recycler view:
+        recyclerView.setAdapter(new RecyclerView.Adapter<MyRowHolder>() {
+            @NonNull
+            @Override
+            public MyRowHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                //this inflates the row layout
+                //load the sent_row_layout
+                SentRowLayoutBinding binding = SentRowLayoutBinding.inflate(getLayoutInflater());
+                return new MyRowHolder (binding.getRoot());
             }
-            else theText.setText("NO = found in the text");
-
+            @Override
+            public void onBindViewHolder(@NonNull MyRowHolder holder, int position) {
+                // this initializes the row to data
+            }
+            @Override
+            public int getItemCount() {
+                //how many rows there are:
+                return theWords.size();
+            }
         });
     }
 
-    /** This function checks the input string
-     *
-     * @param input  The string to search
-     * @param toLookFOr  The character to compare
-     * @return true if toLookFor is part of the input string, false otherwise
-     */
+    protected class MyRowHolder extends RecyclerView.ViewHolder {
+        //put variables for what is on a single row;
+        TextView theWord;
+        TextView theTime;
 
-    boolean checkInput(String input, char toLookFOr  ){
-        boolean found = false;
-
-        for(int i = 0; i < input.length(); i++ ){
-            char c = input.charAt(i);
-            if(c == toLookFOr)
-                found = true;
+        //this view is row
+        public MyRowHolder(@NonNull View itemView) {
+            super(itemView);
+            //this holds the message Text;
+            theWord = itemView.findViewById((R.id.theMessage));
+            //this holds the time text
+            theTime = itemView.findViewById((R.id.theTime));
         }
-        return found;
     }
-
-
 }
+
