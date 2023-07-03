@@ -92,12 +92,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code>android.content.ComponentCallbacks</code>, <code>android.content.ComponentCallbacks2</code>, <code>android.view.KeyEvent.Callback</code>, <code>android.view.LayoutInflater.Factory</code>, <code>android.view.LayoutInflater.Factory2</code>, <code>android.view.View.OnCreateContextMenuListener</code>, <code>android.view.Window.Callback</code>, <code>androidx.activity.contextaware.ContextAware</code>, <code>androidx.activity.OnBackPressedDispatcherOwner</code>, <code>androidx.activity.result.ActivityResultCaller</code>, <code>androidx.activity.result.ActivityResultRegistryOwner</code>, <code>androidx.appcompat.app.ActionBarDrawerToggle.DelegateProvider</code>, <code>androidx.appcompat.app.AppCompatCallback</code>, <code>androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback</code>, <code>androidx.core.app.ActivityCompat.RequestPermissionsRequestCodeValidator</code>, <code>androidx.core.app.TaskStackBuilder.SupportParentable</code>, <code>androidx.core.view.KeyEventDispatcher.Component</code>, <code>androidx.lifecycle.HasDefaultViewModelProviderFactory</code>, <code>androidx.lifecycle.LifecycleOwner</code>, <code>androidx.lifecycle.ViewModelStoreOwner</code>, <code>androidx.savedstate.SavedStateRegistryOwner</code></dd>
+<dd><code>android.content.ComponentCallbacks</code>, <code>android.content.ComponentCallbacks2</code>, <code>android.view.KeyEvent.Callback</code>, <code>android.view.LayoutInflater.Factory</code>, <code>android.view.LayoutInflater.Factory2</code>, <code>android.view.View.OnCreateContextMenuListener</code>, <code>android.view.Window.Callback</code>, <code>androidx.activity.contextaware.ContextAware</code>, <code>androidx.activity.OnBackPressedDispatcherOwner</code>, <code>androidx.activity.result.ActivityResultCaller</code>, <code>androidx.activity.result.ActivityResultRegistryOwner</code>, <code>androidx.appcompat.app.ActionBarDrawerToggle.DelegateProvider</code>, <code>androidx.appcompat.app.AppCompatCallback</code>, <code>androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback</code>, <code>androidx.core.app.ActivityCompat.RequestPermissionsRequestCodeValidator</code>, <code>androidx.core.app.OnMultiWindowModeChangedProvider</code>, <code>androidx.core.app.OnNewIntentProvider</code>, <code>androidx.core.app.OnPictureInPictureModeChangedProvider</code>, <code>androidx.core.app.TaskStackBuilder.SupportParentable</code>, <code>androidx.core.content.OnConfigurationChangedProvider</code>, <code>androidx.core.content.OnTrimMemoryProvider</code>, <code>androidx.core.view.KeyEventDispatcher.Component</code>, <code>androidx.core.view.MenuHost</code>, <code>androidx.lifecycle.HasDefaultViewModelProviderFactory</code>, <code>androidx.lifecycle.LifecycleOwner</code>, <code>androidx.lifecycle.ViewModelStoreOwner</code>, <code>androidx.savedstate.SavedStateRegistryOwner</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">MainActivity</span>
 <span class="extends-implements">extends androidx.appcompat.app.AppCompatActivity</span></div>
-<div class="block">The main activity java class of the activity_main.xml</div>
+<div class="block">This page represents the first page loaded</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -105,6 +105,15 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="nested-class-summary" id="nested-class-summary">
 <h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>protected class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="MainActivity.MyRowHolder.html" class="type-name-link" title="class in algonquin.cst2335.zhou0223">MainActivity.MyRowHolder</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-androidx.core.app.ComponentActivity">Nested classes/interfaces inherited from class&nbsp;androidx.core.app.ComponentActivity</h2>
 <code>androidx.core.app.ComponentActivity.ExtraData</code></div>
@@ -119,9 +128,30 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private <a href="databinding/ActivityMainBinding.html" title="class in algonquin.cst2335.zhou0223.databinding">ActivityMainBinding</a></code></div>
-<div class="col-second even-row-color"><code><a href="#variableBinding" class="member-name-link">variableBinding</a></code></div>
+<div class="col-first even-row-color"><code>(package private) androidx.recyclerview.widget.RecyclerView.Adapter</code></div>
+<div class="col-second even-row-color"><code><a href="#myAdapter" class="member-name-link">myAdapter</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected android.widget.Button</code></div>
+<div class="col-second odd-row-color"><code><a href="#myButton" class="member-name-link">myButton</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">This holds the "Click me" button</div>
+</div>
+<div class="col-first even-row-color"><code>protected androidx.recyclerview.widget.RecyclerView</code></div>
+<div class="col-second even-row-color"><code><a href="#recyclerView" class="member-name-link">recyclerView</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected android.widget.EditText</code></div>
+<div class="col-second odd-row-color"><code><a href="#theEditText" class="member-name-link">theEditText</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">This holds the edit text for typing into</div>
+</div>
+<div class="col-first even-row-color"><code>protected android.widget.TextView</code></div>
+<div class="col-second even-row-color"><code><a href="#theText" class="member-name-link">theText</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#theWords" class="member-name-link">theWords</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">This holds the "Hello world" text view</div>
+</div>
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-android.app.Activity">Fields inherited from class&nbsp;android.app.Activity</h3>
@@ -158,33 +188,27 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkPasswordComplexity(java.lang.String)" class="member-name-link">checkPasswordComplexity</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pw)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">A function to check the password contains at least an uppercase, a lowercase,
- a number and a special character.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onCreate(android.os.Bundle)" class="member-name-link">onCreate</a><wbr>(android.os.Bundle&nbsp;savedInstanceState)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onCreate(android.os.Bundle)" class="member-name-link">onCreate</a><wbr>(android.os.Bundle&nbsp;savedInstanceState)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-androidx.appcompat.app.AppCompatActivity">Methods inherited from class&nbsp;androidx.appcompat.app.AppCompatActivity</h3>
-<code>addContentView, attachBaseContext, closeOptionsMenu, dispatchKeyEvent, findViewById, getDelegate, getDrawerToggleDelegate, getMenuInflater, getResources, getSupportActionBar, getSupportParentActivityIntent, invalidateOptionsMenu, onConfigurationChanged, onContentChanged, onCreateSupportNavigateUpTaskStack, onDestroy, onKeyDown, onMenuItemSelected, onMenuOpened, onNightModeChanged, onPanelClosed, onPostCreate, onPostResume, onPrepareSupportNavigateUpTaskStack, onStart, onStop, onSupportActionModeFinished, onSupportActionModeStarted, onSupportContentChanged, onSupportNavigateUp, onTitleChanged, onWindowStartingSupportActionMode, openOptionsMenu, setContentView, setContentView, setContentView, setSupportActionBar, setSupportProgress, setSupportProgressBarIndeterminate, setSupportProgressBarIndeterminateVisibility, setSupportProgressBarVisibility, setTheme, startSupportActionMode, supportInvalidateOptionsMenu, supportNavigateUpTo, supportRequestWindowFeature, supportShouldUpRecreateTask</code></div>
+<code>addContentView, attachBaseContext, closeOptionsMenu, dispatchKeyEvent, findViewById, getDelegate, getDrawerToggleDelegate, getMenuInflater, getResources, getSupportActionBar, getSupportParentActivityIntent, invalidateOptionsMenu, onConfigurationChanged, onContentChanged, onCreateSupportNavigateUpTaskStack, onDestroy, onKeyDown, onLocalesChanged, onMenuItemSelected, onMenuOpened, onNightModeChanged, onPanelClosed, onPostCreate, onPostResume, onPrepareSupportNavigateUpTaskStack, onStart, onStop, onSupportActionModeFinished, onSupportActionModeStarted, onSupportContentChanged, onSupportNavigateUp, onTitleChanged, onWindowStartingSupportActionMode, openOptionsMenu, setContentView, setContentView, setContentView, setSupportActionBar, setSupportProgress, setSupportProgressBarIndeterminate, setSupportProgressBarIndeterminateVisibility, setSupportProgressBarVisibility, setTheme, startSupportActionMode, supportInvalidateOptionsMenu, supportNavigateUpTo, supportRequestWindowFeature, supportShouldUpRecreateTask</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-androidx.fragment.app.FragmentActivity">Methods inherited from class&nbsp;androidx.fragment.app.FragmentActivity</h3>
 <code>dump, getSupportFragmentManager, getSupportLoaderManager, onActivityResult, onAttachFragment, onCreatePanelMenu, onCreateView, onCreateView, onLowMemory, onMultiWindowModeChanged, onNewIntent, onPause, onPictureInPictureModeChanged, onPrepareOptionsPanel, onPreparePanel, onRequestPermissionsResult, onResume, onResumeFragments, onStateNotSaved, setEnterSharedElementCallback, setExitSharedElementCallback, startActivityFromFragment, startActivityFromFragment, startIntentSenderFromFragment, supportFinishAfterTransition, supportPostponeEnterTransition, supportStartPostponedEnterTransition, validateRequestPermissionsRequestCode</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-androidx.activity.ComponentActivity">Methods inherited from class&nbsp;androidx.activity.ComponentActivity</h3>
-<code>addOnContextAvailableListener, getActivityResultRegistry, getDefaultViewModelProviderFactory, getLastCustomNonConfigurationInstance, getLifecycle, getOnBackPressedDispatcher, getSavedStateRegistry, getViewModelStore, onBackPressed, onRetainCustomNonConfigurationInstance, onRetainNonConfigurationInstance, onSaveInstanceState, peekAvailableContext, registerForActivityResult, registerForActivityResult, removeOnContextAvailableListener, reportFullyDrawn, startActivityForResult, startActivityForResult, startIntentSenderForResult, startIntentSenderForResult</code></div>
+<code>addMenuProvider, addMenuProvider, addMenuProvider, addOnConfigurationChangedListener, addOnContextAvailableListener, addOnMultiWindowModeChangedListener, addOnNewIntentListener, addOnPictureInPictureModeChangedListener, addOnTrimMemoryListener, getActivityResultRegistry, getDefaultViewModelCreationExtras, getDefaultViewModelProviderFactory, getLastCustomNonConfigurationInstance, getLifecycle, getOnBackPressedDispatcher, getSavedStateRegistry, getViewModelStore, invalidateMenu, onBackPressed, onMultiWindowModeChanged, onPictureInPictureModeChanged, onRetainCustomNonConfigurationInstance, onRetainNonConfigurationInstance, onSaveInstanceState, onTrimMemory, peekAvailableContext, registerForActivityResult, registerForActivityResult, removeMenuProvider, removeOnConfigurationChangedListener, removeOnContextAvailableListener, removeOnMultiWindowModeChangedListener, removeOnNewIntentListener, removeOnPictureInPictureModeChangedListener, removeOnTrimMemoryListener, reportFullyDrawn, startActivityForResult, startActivityForResult, startIntentSenderForResult, startIntentSenderForResult</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-androidx.core.app.ComponentActivity">Methods inherited from class&nbsp;androidx.core.app.ComponentActivity</h3>
-<code>dispatchKeyShortcutEvent, getExtraData, putExtraData, superDispatchKeyEvent</code></div>
+<code>dispatchKeyShortcutEvent, getExtraData, putExtraData, shouldDumpInternalState, superDispatchKeyEvent</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-android.app.Activity">Methods inherited from class&nbsp;android.app.Activity</h3>
-<code>closeContextMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, enterPictureInPictureMode, enterPictureInPictureMode, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMaxNumPictureInPictureActions, getMediaController, getOnBackInvokedDispatcher, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSplashScreen, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, isActivityTransitionRunning, isChangingConfigurations, isChild, isDestroyed, isFinishing, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLaunchedFromBubble, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onChildTitleChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreateOptionsMenu, onCreatePanelView, onCreateThumbnail, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onGetDirectActions, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onMultiWindowModeChanged, onNavigateUp, onNavigateUpFromChild, onOptionsItemSelected, onOptionsMenuClosed, onPerformDirectAction, onPictureInPictureModeChanged, onPictureInPictureRequested, onPictureInPictureUiStateChanged, onPostCreate, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRestart, onRestoreInstanceState, onRestoreInstanceState, onSaveInstanceState, onSearchRequested, onSearchRequested, onTopResumedActivityChanged, onTouchEvent, onTrackballEvent, onTrimMemory, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, overridePendingTransition, overridePendingTransition, postponeEnterTransition, recreate, registerActivityLifecycleCallbacks, registerComponentCallbacks, registerForContextMenu, releaseInstance, removeDialog, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, requireViewById, runOnUiThread, setActionBar, setContentTransitionManager, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setInheritShowWhenLocked, setIntent, setLocusContext, setMediaController, setPictureInPictureParams, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRecentsScreenshotEnabled, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setShouldDockBigOverlays, setShowWhenLocked, setTaskDescription, setTitle, setTitle, setTitleColor, setTranslucent, setTurnScreenOn, setVisible, setVolumeControlStream, setVrModeEnabled, shouldDockBigOverlays, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterActivityLifecycleCallbacks, unregisterComponentCallbacks, unregisterForContextMenu</code></div>
+<code>closeContextMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, enterPictureInPictureMode, enterPictureInPictureMode, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMaxNumPictureInPictureActions, getMediaController, getOnBackInvokedDispatcher, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSplashScreen, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, isActivityTransitionRunning, isChangingConfigurations, isChild, isDestroyed, isFinishing, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLaunchedFromBubble, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onChildTitleChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreateOptionsMenu, onCreatePanelView, onCreateThumbnail, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onGetDirectActions, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onNavigateUp, onNavigateUpFromChild, onOptionsItemSelected, onOptionsMenuClosed, onPerformDirectAction, onPictureInPictureRequested, onPictureInPictureUiStateChanged, onPostCreate, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRestart, onRestoreInstanceState, onRestoreInstanceState, onSaveInstanceState, onSearchRequested, onSearchRequested, onTopResumedActivityChanged, onTouchEvent, onTrackballEvent, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, overridePendingTransition, overridePendingTransition, postponeEnterTransition, recreate, registerActivityLifecycleCallbacks, registerComponentCallbacks, registerForContextMenu, releaseInstance, removeDialog, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, requireViewById, runOnUiThread, setActionBar, setContentTransitionManager, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setInheritShowWhenLocked, setIntent, setLocusContext, setMediaController, setPictureInPictureParams, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRecentsScreenshotEnabled, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setShouldDockBigOverlays, setShowWhenLocked, setTaskDescription, setTitle, setTitle, setTitleColor, setTranslucent, setTurnScreenOn, setVisible, setVolumeControlStream, setVrModeEnabled, shouldDockBigOverlays, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterActivityLifecycleCallbacks, unregisterComponentCallbacks, unregisterForContextMenu</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-android.view.ContextThemeWrapper">Methods inherited from class&nbsp;android.view.ContextThemeWrapper</h3>
 <code>applyOverrideConfiguration, getAssets, getTheme, setTheme</code></div>
@@ -212,9 +236,42 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="variableBinding">
-<h3>variableBinding</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="databinding/ActivityMainBinding.html" title="class in algonquin.cst2335.zhou0223.databinding">ActivityMainBinding</a></span>&nbsp;<span class="element-name">variableBinding</span></div>
+<section class="detail" id="theWords">
+<h3>theWords</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">theWords</span></div>
+<div class="block">This holds the "Hello world" text view</div>
+</section>
+</li>
+<li>
+<section class="detail" id="recyclerView">
+<h3>recyclerView</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">androidx.recyclerview.widget.RecyclerView</span>&nbsp;<span class="element-name">recyclerView</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="theText">
+<h3>theText</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">android.widget.TextView</span>&nbsp;<span class="element-name">theText</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="myButton">
+<h3>myButton</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">android.widget.Button</span>&nbsp;<span class="element-name">myButton</span></div>
+<div class="block">This holds the "Click me" button</div>
+</section>
+</li>
+<li>
+<section class="detail" id="theEditText">
+<h3>theEditText</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">android.widget.EditText</span>&nbsp;<span class="element-name">theEditText</span></div>
+<div class="block">This holds the edit text for typing into</div>
+</section>
+</li>
+<li>
+<section class="detail" id="myAdapter">
+<h3>myAdapter</h3>
+<div class="member-signature"><span class="return-type">androidx.recyclerview.widget.RecyclerView.Adapter</span>&nbsp;<span class="element-name">myAdapter</span></div>
 </section>
 </li>
 </ul>
@@ -239,20 +296,6 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="checkPasswordComplexity(java.lang.String)">
-<h3>checkPasswordComplexity</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">checkPasswordComplexity</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pw)</span></div>
-<div class="block">A function to check the password contains at least an uppercase, a lowercase,
- a number and a special character.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>pw</code> - The String object that we are checking</dd>
-<dt>Returns:</dt>
-<dd>Return true if the password is complex enough</dd>
-</dl>
-</section>
-</li>
 <li>
 <section class="detail" id="onCreate(android.os.Bundle)">
 <h3>onCreate</h3>
