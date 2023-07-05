@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
@@ -18,27 +19,15 @@ import algonquin.cst2335.zhou0223.databinding.ActivityChatRoomBinding;
 import algonquin.cst2335.zhou0223.databinding.ReceiveMessageBinding;
 import algonquin.cst2335.zhou0223.databinding.SentMessageBinding;
 
-class MyRowHolder extends RecyclerView.ViewHolder {
-    TextView theMessage;
-    TextView theTime;
-
-    public MyRowHolder(@NonNull View itemView) {
-        super(itemView);
-        theMessage = itemView.findViewById(R.id.theMessage);
-        theTime = itemView.findViewById(R.id.theTime);
-    }
-}
-
 public class ChatRoom extends AppCompatActivity {
     ActivityChatRoomBinding binding;
     ChatRoomViewModel chatModel;
-    private RecyclerView.Adapter<MyRowHolder> myAdapter;
+    RecyclerView.Adapter myAdapter;
     ArrayList<ChatMessage> messages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_room);
 
         binding = ActivityChatRoomBinding.inflate(getLayoutInflater());
         chatModel = new ViewModelProvider(this).get(ChatRoomViewModel.class);
@@ -72,7 +61,7 @@ public class ChatRoom extends AppCompatActivity {
             @NonNull
             @Override
             public MyRowHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                if (viewType == 1) {
+                if (viewType == 0) {
                     SentMessageBinding binding = SentMessageBinding.inflate(getLayoutInflater());
                     return new MyRowHolder(binding.getRoot());
                 } else {
@@ -104,7 +93,17 @@ public class ChatRoom extends AppCompatActivity {
                 }
             }
         });
+        binding.recycleView.setLayoutManager(new LinearLayoutManager(this));
+    }
+}
 
-        binding.recycleView.setAdapter(myAdapter);
+class MyRowHolder extends RecyclerView.ViewHolder {
+    TextView theMessage;
+    TextView theTime;
+
+    public MyRowHolder(@NonNull View itemView) {
+        super(itemView);
+        theMessage = itemView.findViewById(R.id.theMessage);
+        theTime = itemView.findViewById(R.id.theTime);
     }
 }

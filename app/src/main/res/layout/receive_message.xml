@@ -7,10 +7,11 @@
 
     <TextView
         android:id="@+id/theMessage"
-        android:textSize="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="281dp"
+        android:layout_height="38dp"
+        android:src="@drawable/receive_image"
         android:text="Message Goes Here"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
