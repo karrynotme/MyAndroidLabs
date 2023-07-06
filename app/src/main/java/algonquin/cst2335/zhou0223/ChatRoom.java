@@ -48,11 +48,10 @@ public class ChatRoom extends AppCompatActivity {
         });
 
         binding.receiveButton.setOnClickListener(click -> {
-            String message = binding.editText.getText().toString();
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a");
             String currentDateandTime = sdf.format(new Date());
-            ChatMessage chatMessage = new ChatMessage(message, currentDateandTime, false);
-            messages.add(chatMessage);
+            messages.add( new ChatMessage(binding.editText.getText().toString(), currentDateandTime, false));
+
             myAdapter.notifyItemInserted(messages.size() - 1);
             binding.editText.setText("");
         });
@@ -72,11 +71,11 @@ public class ChatRoom extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(@NonNull MyRowHolder holder, int position) {
-                holder.message.setText("");
-                holder.time.setText("");
+                holder.messageText.setText("");
+                holder.timeText.setText("");
                 ChatMessage chatMessage = messages.get(position);
-                holder.message.setText(chatMessage.getMessage());
-                holder.time.setText(chatMessage.getTimeSent());
+                holder.messageText.setText(chatMessage.getMessage());
+                holder.timeText.setText(chatMessage.getTimeSent());
             }
 
             @Override
@@ -98,12 +97,12 @@ public class ChatRoom extends AppCompatActivity {
 }
 
 class MyRowHolder extends RecyclerView.ViewHolder {
-    TextView message;
-    TextView time;
+    TextView messageText;
+    TextView timeText;
 
     public MyRowHolder(@NonNull View itemView) {
         super(itemView);
-        message = itemView.findViewById(R.id.theMessage);
-        time = itemView.findViewById(R.id.theTime);
+        messageText = itemView.findViewById(R.id.theMessage);
+        timeText = itemView.findViewById(R.id.theTime);
     }
 }
