@@ -22,7 +22,7 @@ import algonquin.cst2335.zhou0223.databinding.SentMessageBinding;
 public class ChatRoom extends AppCompatActivity {
     ActivityChatRoomBinding binding;
     ChatRoomViewModel chatModel;
-    RecyclerView.Adapter myAdapter;
+    private RecyclerView.Adapter myAdapter;
     ArrayList<ChatMessage> messages;
 
     @Override
@@ -41,20 +41,20 @@ public class ChatRoom extends AppCompatActivity {
         binding.sendButton.setOnClickListener(click -> {
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a");
             String currentDateandTime = sdf.format(new Date());
-            messages.add( new ChatMessage(binding.sendButton.getText().toString(), currentDateandTime, true));
+            messages.add( new ChatMessage(binding.editText.getText().toString(), currentDateandTime, true));
 
             myAdapter.notifyItemInserted(messages.size() - 1);
-            binding.sendButton.setText("");
+            binding.editText.setText("");
         });
 
         binding.receiveButton.setOnClickListener(click -> {
-            String message = binding.receiveButton.getText().toString();
+            String message = binding.editText.getText().toString();
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a");
             String currentDateandTime = sdf.format(new Date());
             ChatMessage chatMessage = new ChatMessage(message, currentDateandTime, false);
             messages.add(chatMessage);
             myAdapter.notifyItemInserted(messages.size() - 1);
-            binding.receiveButton.setText("");
+            binding.editText.setText("");
         });
 
         binding.recycleView.setAdapter(myAdapter = new RecyclerView.Adapter<MyRowHolder>() {
@@ -72,11 +72,11 @@ public class ChatRoom extends AppCompatActivity {
 
             @Override
             public void onBindViewHolder(@NonNull MyRowHolder holder, int position) {
-                holder.theMessage.setText("");
-                holder.theTime.setText("");
+                holder.message.setText("");
+                holder.time.setText("");
                 ChatMessage chatMessage = messages.get(position);
-                holder.theMessage.setText(chatMessage.getMessage());
-                holder.theTime.setText(chatMessage.getTimeSent());
+                holder.message.setText(chatMessage.getMessage());
+                holder.time.setText(chatMessage.getTimeSent());
             }
 
             @Override
@@ -98,12 +98,12 @@ public class ChatRoom extends AppCompatActivity {
 }
 
 class MyRowHolder extends RecyclerView.ViewHolder {
-    TextView theMessage;
-    TextView theTime;
+    TextView message;
+    TextView time;
 
     public MyRowHolder(@NonNull View itemView) {
         super(itemView);
-        theMessage = itemView.findViewById(R.id.theMessage);
-        theTime = itemView.findViewById(R.id.theTime);
+        message = itemView.findViewById(R.id.theMessage);
+        time = itemView.findViewById(R.id.theTime);
     }
 }
