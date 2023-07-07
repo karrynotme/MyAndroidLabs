@@ -85,6 +85,7 @@ public class ChatRoom extends AppCompatActivity {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.sendReceiveMessage, chatFragment)
+                    .addToBackStack(null) //将事务添加到返回堆栈
                     .commit();
         });
 
