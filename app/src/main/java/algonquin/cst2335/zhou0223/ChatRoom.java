@@ -6,14 +6,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,11 +35,15 @@ public class ChatRoom extends AppCompatActivity {
         TextView timeText;
         public MyRowHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(clk -> {
-                int position = getAbsoluteAdapterPosition();
+
+                itemView.setOnClickListener( click -> {
+                    int position = getAbsoluteAdapterPosition();
+                    ChatMessage selected = messages.get(position);
+                    chatModel.selectedMessage.postValue(selected);
+                });
+               /*
                 MyRowHolder newRow = (MyRowHolder) myAdapter.onCreateViewHolder(null,myAdapter.getItemViewType(position));
                 AlertDialog.Builder builder = new AlertDialog.Builder( ChatRoom.this );
-
                 builder.setMessage("Do you want to delete the message: "+ messageText.getText());
                 builder.setTitle("Question:");
                 builder.setNegativeButton("No",(dialog,cl)->{});
@@ -58,8 +59,8 @@ public class ChatRoom extends AppCompatActivity {
                             })
                             .show();
                 });
-                builder.create().show();
-            });
+                builder.create().show(); */
+
             messageText = itemView.findViewById(R.id.theMessage);
             timeText = itemView.findViewById(R.id.theTime);
         }
@@ -77,6 +78,16 @@ public class ChatRoom extends AppCompatActivity {
         binding = ActivityChatRoomBinding.inflate(getLayoutInflater());
         chatModel = new ViewModelProvider(this).get(ChatRoomViewModel.class);
         messages = chatModel.messages.getValue();
+
+        //Register as a listener for the MutableLiveData object
+        ChatRoomViewModel.selectedMessage.observe(this, (newValue) -> {
+            MessageDetailsFragment chatFragment = new MessageDetailsFragment(newValue);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.sendReceiveMessage, chatFragment)
+                    .commit();
+        });
+
         //get all messages from the database at the beginning
         if(messages == null)
         {
