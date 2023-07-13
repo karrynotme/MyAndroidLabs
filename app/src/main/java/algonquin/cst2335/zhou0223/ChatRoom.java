@@ -81,11 +81,12 @@ public class ChatRoom extends AppCompatActivity {
 
         //Register as a listener for the MutableLiveData object
         ChatRoomViewModel.selectedMessage.observe(this, (newValue) -> {
-            MessageDetailsFragment chatFragment = new MessageDetailsFragment(newValue);
+            MessageDetailsFragment chatFragment = new MessageDetailsFragment();
+            chatFragment.displayMessage(newValue);
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.sendReceiveMessage, chatFragment)
-                    .addToBackStack(null) //将事务添加到返回堆栈
+                    .addToBackStack("null")
                     .commit();
         });
 

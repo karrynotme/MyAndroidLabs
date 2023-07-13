@@ -11,7 +11,7 @@ import algonquin.cst2335.zhou0223.databinding.DetailsLayoutBinding;
 
 public class MessageDetailsFragment extends Fragment {
     ChatMessage selected;
-    public MessageDetailsFragment(ChatMessage m){
+    public MessageDetailsFragment(){0
         selected = m;
     }
     @Override
@@ -21,7 +21,9 @@ public class MessageDetailsFragment extends Fragment {
         binding.messageText.setText(selected.message);
         binding.timeText.setText(selected.timeSent);
         binding.databaseText.setText("Id="+selected.id);
-
         return binding.getRoot();
+    }
+
+    public void displayMessage(ChatMessage newValue) {
     }
 }
