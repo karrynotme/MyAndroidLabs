@@ -7,17 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ChatRoom">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="0dp"
-        android:layout_margin="0dp"
-        android:layout_height="match_parent"
-        android:background="#800080"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/recycleView"
-        app:layout_constraintBottom_toBottomOf="parent">
-    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
@@ -41,18 +30,29 @@
         android:layout_height="wrap_content"
         android:text="RECEIVE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/recycleView"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         />
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/receiveButton"
         app:layout_constraintStart_toEndOf="@+id/sendButton" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_margin="0dp"
+        android:layout_height="match_parent"
+        android:background="#800080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/recycleView"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,19 +11,17 @@ import algonquin.cst2335.zhou0223.databinding.DetailsLayoutBinding;
 
 public class MessageDetailsFragment extends Fragment {
     ChatMessage selected;
-    public MessageDetailsFragment(){0
+    public MessageDetailsFragment(ChatMessage m){
         selected = m;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
         DetailsLayoutBinding binding = DetailsLayoutBinding.inflate(inflater);
+
         binding.messageText.setText(selected.message);
         binding.timeText.setText(selected.timeSent);
         binding.databaseText.setText("Id="+selected.id);
         return binding.getRoot();
-    }
-
-    public void displayMessage(ChatMessage newValue) {
     }
 }
