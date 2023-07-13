@@ -10,7 +10,7 @@ import java.util.List;
 @Dao
 public interface ChatMessageDAO {
     @Insert
-    void insertMessage(ChatMessage m);
+    long insertMessage(ChatMessage m);
 
     @Query("SELECT * FROM ChatMessage")
     List<ChatMessage> getAllMessages();

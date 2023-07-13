@@ -48,12 +48,26 @@ public class ChatRoom extends AppCompatActivity {
                 builder.setNegativeButton("No",(dialog,cl)->{});
                 builder.setPositiveButton("Yes",(dialog,cl)->{
                     ChatMessage m = messages.get(position);
+
+
+                    Executor thread1 = Executors.newSingleThreadExecutor();
+                    thread1.execute(() ->{
+                        mDAO.deleteMessage(m);//add to database;
+                        /*this runs in another thread*/
+                    });
                     //mDAO.deleteMessage(m);
                     messages.remove(position);
                     myAdapter.notifyItemRemoved(position);
                     Snackbar.make(messageText, "You deleted message #"+position, Snackbar.LENGTH_LONG)
                             .setAction("Undo", (cl2) ->{
                                 messages.add(position, m);
+
+
+                                Executor thread2 = Executors.newSingleThreadExecutor();
+                                thread2.execute(() ->{
+                                    mDAO.insertMessage(m);//add to database;
+                                    /*this runs in another thread*/
+                                });
                                 myAdapter.notifyItemInserted(position);
                             })
                             .show();
@@ -93,23 +107,39 @@ public class ChatRoom extends AppCompatActivity {
         binding.sendButton.setOnClickListener(click -> {
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a");
             String currentDateandTime = sdf.format(new Date());
+            ChatMessage cm = new ChatMessage(binding.editText.getText().toString(), currentDateandTime, true);
             //Create chat object
-            messages.add( new ChatMessage(binding.editText.getText().toString(), currentDateandTime, true));
+            messages.add(cm );
             //Notify insert
             myAdapter.notifyItemInserted(messages.size() - 1);
             //Clear the previous text
             binding.editText.setText("");
+
+            Executor thread1 = Executors.newSingleThreadExecutor();
+            thread1.execute(() ->{
+                cm.id = (int)mDAO.insertMessage(cm);//add to database;
+                /*this runs in another thread*/
+            });
+
         });
 
         binding.receiveButton.setOnClickListener(click -> {
             SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a");
             String currentDateandTime = sdf.format(new Date());
+            ChatMessage cm = new ChatMessage(binding.editText.getText().toString(), currentDateandTime, false);
             //Create chat object
-            messages.add( new ChatMessage(binding.editText.getText().toString(), currentDateandTime, false));
+            messages.add(cm);
             //Notify insert
             myAdapter.notifyItemInserted(messages.size() - 1);
             //Clear the previous text
             binding.editText.setText("");
+
+            Executor thread1 = Executors.newSingleThreadExecutor();
+            thread1.execute(() ->{
+                cm.id = (int)mDAO.insertMessage(cm);//add to database;
+                /*this runs in another thread*/
+            });
+
         });
 
         binding.recycleView.setAdapter(myAdapter = new RecyclerView.Adapter<MyRowHolder>() {
