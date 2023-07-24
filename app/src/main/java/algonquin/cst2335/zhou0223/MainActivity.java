@@ -46,32 +46,35 @@ public class MainActivity extends AppCompatActivity {
             cityName = binding.cityTextField.getText().toString();
             String stringURL = null;
             try {
-                stringURL = "https://api.openweathermap.org/data/2.5/weather?q=" + URLEncoder.encode(cityName, "UTF-8") + "&appid=7e943c97096a9784391a981c4d878b22&units=metric";
+                stringURL = "https://api.openweathermap.org/data/2.5/weather?q="
+                        + URLEncoder.encode(cityName, "UTF-8")
+                        + "&appid=7e943c97096a9784391a981c4d878b22&units=metric";
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
             //this goes in the button click handler:
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, stringURL, null,
-                    (response)->{
+                    (successfulResponse )->{
                         try {
-                            JSONArray weather = response.getJSONArray("weather");
-                            JSONObject data = response.getJSONObject("main");
+                            JSONArray weather = successfulResponse.getJSONArray("weather");
+                            JSONObject data = successfulResponse.getJSONObject("main");
                             binding.temp.setText("The current temperature is " + data.getString("temp"));
                             binding.maxTemp.setText("The max temperature is " + data.getString("temp_max"));
                             binding.minTemp.setText("The min temperature is " + data.getString("temp_min"));
                             binding.humitidy.setText("The humidity is " + data.getString("humidity") + "%");
                             binding.description.setText(weather.getJSONObject(0).getString("description"));
+
                             String iconName = weather.getJSONObject(0).getString("icon");
-
-                            String imageUrl = "https://openweathermap.org/img/w/" + iconName + ".png";
-
+                            String pictureURL = "http://openweathermap.org/img/w/"
+                                    + iconName
+                                    + ".png";
                             String pathname = getFilesDir() + "/" + iconName + ".png";
                             File f = new File(pathname);
                             if(f.exists()){
                                 binding.icon.setImageBitmap(BitmapFactory.decodeFile(pathname));
                             }
                             else {
-                                ImageRequest imgReq = new ImageRequest(imageUrl, new Response.Listener<Bitmap>() {
+                                ImageRequest imgReq = new ImageRequest(pictureURL, new Response.Listener<Bitmap>() {
                                     @Override
                                     public void onResponse(Bitmap bitmap) {
                                         binding.icon.setImageBitmap(bitmap);
@@ -85,11 +88,11 @@ public class MainActivity extends AppCompatActivity {
                         catch (JSONException e) {
                             throw new RuntimeException(e);
                         }
-                    },
+                    }, //gets called if it is successful
                     (error) ->
-                    {  int j =0;   }
-            );
-            queue.add(request);
+                    {  int i =0;   }
+            );//gets called if there is an error
+            queue.add(request);//run the web query
         });
     }
 }
