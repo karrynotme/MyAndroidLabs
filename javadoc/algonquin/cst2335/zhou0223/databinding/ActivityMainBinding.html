@@ -94,17 +94,35 @@ implements androidx.viewbinding.ViewBinding</span></div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>final android.widget.EditText</code></div>
+<div class="col-second even-row-color"><code><a href="#cityTextField" class="member-name-link">cityTextField</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>final android.widget.TextView</code></div>
+<div class="col-second odd-row-color"><code><a href="#description" class="member-name-link">description</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>final android.widget.Button</code></div>
-<div class="col-second even-row-color"><code><a href="#button" class="member-name-link">button</a></code></div>
+<div class="col-second even-row-color"><code><a href="#forecastButton" class="member-name-link">forecastButton</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>final android.widget.TextView</code></div>
+<div class="col-second odd-row-color"><code><a href="#humitidy" class="member-name-link">humitidy</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>final android.widget.ImageView</code></div>
+<div class="col-second even-row-color"><code><a href="#icon" class="member-name-link">icon</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>final android.widget.TextView</code></div>
+<div class="col-second odd-row-color"><code><a href="#maxTemp" class="member-name-link">maxTemp</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>final android.widget.TextView</code></div>
+<div class="col-second even-row-color"><code><a href="#minTemp" class="member-name-link">minTemp</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private final androidx.constraintlayout.widget.ConstraintLayout</code></div>
 <div class="col-second odd-row-color"><code><a href="#rootView" class="member-name-link">rootView</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>final android.widget.TextView</code></div>
-<div class="col-second even-row-color"><code><a href="#textView" class="member-name-link">textView</a></code></div>
+<div class="col-second even-row-color"><code><a href="#temp" class="member-name-link">temp</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>final android.widget.EditText</code></div>
-<div class="col-second odd-row-color"><code><a href="#theEditText" class="member-name-link">theEditText</a></code></div>
+<div class="col-first odd-row-color"><code>final android.widget.TextView</code></div>
+<div class="col-second odd-row-color"><code><a href="#textView" class="member-name-link">textView</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -119,10 +137,16 @@ implements androidx.viewbinding.ViewBinding</span></div>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(androidx.constraintlayout.widget.ConstraintLayout,android.widget.Button,android.widget.TextView,android.widget.EditText)" class="member-name-link">ActivityMainBinding</a><wbr>(androidx.constraintlayout.widget.ConstraintLayout&nbsp;rootView,
- android.widget.Button&nbsp;button,
- android.widget.TextView&nbsp;textView,
- android.widget.EditText&nbsp;theEditText)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(androidx.constraintlayout.widget.ConstraintLayout,android.widget.EditText,android.widget.TextView,android.widget.Button,android.widget.TextView,android.widget.ImageView,android.widget.TextView,android.widget.TextView,android.widget.TextView,android.widget.TextView)" class="member-name-link">ActivityMainBinding</a><wbr>(androidx.constraintlayout.widget.ConstraintLayout&nbsp;rootView,
+ android.widget.EditText&nbsp;cityTextField,
+ android.widget.TextView&nbsp;description,
+ android.widget.Button&nbsp;forecastButton,
+ android.widget.TextView&nbsp;humitidy,
+ android.widget.ImageView&nbsp;icon,
+ android.widget.TextView&nbsp;maxTemp,
+ android.widget.TextView&nbsp;minTemp,
+ android.widget.TextView&nbsp;temp,
+ android.widget.TextView&nbsp;textView)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -177,10 +201,59 @@ implements androidx.viewbinding.ViewBinding</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="button">
-<h3>button</h3>
+<section class="detail" id="cityTextField">
+<h3>cityTextField</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.Button</span>&nbsp;<span class="element-name">button</span></div>
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.EditText</span>&nbsp;<span class="element-name">cityTextField</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="description">
+<h3>description</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.TextView</span>&nbsp;<span class="element-name">description</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="forecastButton">
+<h3>forecastButton</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.Button</span>&nbsp;<span class="element-name">forecastButton</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="humitidy">
+<h3>humitidy</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.TextView</span>&nbsp;<span class="element-name">humitidy</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="icon">
+<h3>icon</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.ImageView</span>&nbsp;<span class="element-name">icon</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="maxTemp">
+<h3>maxTemp</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.TextView</span>&nbsp;<span class="element-name">maxTemp</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="minTemp">
+<h3>minTemp</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.TextView</span>&nbsp;<span class="element-name">minTemp</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="temp">
+<h3>temp</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.TextView</span>&nbsp;<span class="element-name">temp</span></div>
 </section>
 </li>
 <li>
@@ -188,13 +261,6 @@ implements androidx.viewbinding.ViewBinding</span></div>
 <h3>textView</h3>
 <div class="member-signature"><span class="annotations">@NonNull
 </span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.TextView</span>&nbsp;<span class="element-name">textView</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="theEditText">
-<h3>theEditText</h3>
-<div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">public final</span>&nbsp;<span class="return-type">android.widget.EditText</span>&nbsp;<span class="element-name">theEditText</span></div>
 </section>
 </li>
 </ul>
@@ -206,16 +272,28 @@ implements androidx.viewbinding.ViewBinding</span></div>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(androidx.constraintlayout.widget.ConstraintLayout,android.widget.Button,android.widget.TextView,android.widget.EditText)">
+<section class="detail" id="&lt;init&gt;(androidx.constraintlayout.widget.ConstraintLayout,android.widget.EditText,android.widget.TextView,android.widget.Button,android.widget.TextView,android.widget.ImageView,android.widget.TextView,android.widget.TextView,android.widget.TextView,android.widget.TextView)">
 <h3>ActivityMainBinding</h3>
 <div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ActivityMainBinding</span><wbr><span class="parameters">(@NonNull
  androidx.constraintlayout.widget.ConstraintLayout&nbsp;rootView,
  @NonNull
- android.widget.Button&nbsp;button,
+ android.widget.EditText&nbsp;cityTextField,
  @NonNull
- android.widget.TextView&nbsp;textView,
+ android.widget.TextView&nbsp;description,
  @NonNull
- android.widget.EditText&nbsp;theEditText)</span></div>
+ android.widget.Button&nbsp;forecastButton,
+ @NonNull
+ android.widget.TextView&nbsp;humitidy,
+ @NonNull
+ android.widget.ImageView&nbsp;icon,
+ @NonNull
+ android.widget.TextView&nbsp;maxTemp,
+ @NonNull
+ android.widget.TextView&nbsp;minTemp,
+ @NonNull
+ android.widget.TextView&nbsp;temp,
+ @NonNull
+ android.widget.TextView&nbsp;textView)</span></div>
 </section>
 </li>
 </ul>
