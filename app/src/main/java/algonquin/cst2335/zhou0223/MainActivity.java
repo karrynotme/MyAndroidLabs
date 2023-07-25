@@ -1,5 +1,6 @@
 package algonquin.cst2335.zhou0223;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -24,22 +25,18 @@ import java.net.URLEncoder;
 
 import algonquin.cst2335.zhou0223.databinding.ActivityMainBinding;
 
-/**
- * The main activity java class of the activity_main.xml
- * @author Min
- * @version 1.0
- */
 public class MainActivity extends AppCompatActivity {
 
     protected String cityName;
     protected RequestQueue queue = null;
+    protected Bitmap image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         queue = Volley.newRequestQueue(this);
-        ActivityMainBinding binding = ActivityMainBinding.inflate( getLayoutInflater() );
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         binding.forecastButton.setOnClickListener(click -> {
@@ -52,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
-            //this goes in the button click handler:
+
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, stringURL, null,
-                    (successfulResponse )->{
+                    (successfulResponse) -> {
                         try {
                             JSONArray weather = successfulResponse.getJSONArray("weather");
                             JSONObject data = successfulResponse.getJSONObject("main");
@@ -65,34 +62,37 @@ public class MainActivity extends AppCompatActivity {
                             binding.description.setText(weather.getJSONObject(0).getString("description"));
 
                             String iconName = weather.getJSONObject(0).getString("icon");
-                            String pictureURL = "http://openweathermap.org/img/w/"
-                                    + iconName
-                                    + ".png";
+                            String pictureURL = "http://openweathermap.org/img/w/" + iconName + ".png";
                             String pathname = getFilesDir() + "/" + iconName + ".png";
                             File f = new File(pathname);
-                            if(f.exists()){
+                            if (f.exists()) {
                                 binding.icon.setImageBitmap(BitmapFactory.decodeFile(pathname));
-                            }
-                            else {
+                            } else {
                                 ImageRequest imgReq = new ImageRequest(pictureURL, new Response.Listener<Bitmap>() {
                                     @Override
                                     public void onResponse(Bitmap bitmap) {
-                                        binding.icon.setImageBitmap(bitmap);
+                                        try {
+                                            image = bitmap;
+                                            image.compress(Bitmap.CompressFormat.PNG, 100, MainActivity.this.openFileOutput(iconName + ".png", Activity.MODE_PRIVATE));
+                                            binding.icon.setImageBitmap(bitmap);
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
                                     }
-                                }, 1024, 1024, ImageView.ScaleType.CENTER, null, (error) -> {
-                                    int j = 0;
+                                }, 1024, 1024, ImageView.ScaleType.CENTER, Bitmap.Config.ARGB_8888, (error) -> {
+                                    error.printStackTrace();
                                 });
                                 queue.add(imgReq);
                             }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                        catch (JSONException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }, //gets called if it is successful
-                    (error) ->
-                    {  int i =0;   }
-            );//gets called if there is an error
-            queue.add(request);//run the web query
+                    },
+                    (error) -> {
+                        error.printStackTrace();
+                    }
+            );
+            queue.add(request);
         });
     }
 }
